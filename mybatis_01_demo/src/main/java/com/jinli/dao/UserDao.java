@@ -10,4 +10,6 @@ public interface UserDao {
     //插入一个用户
     int insertUser(User user);
 
+    int updateUser(User user);
+
 }

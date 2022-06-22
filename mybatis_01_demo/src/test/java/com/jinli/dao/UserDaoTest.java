@@ -45,4 +45,18 @@ public class UserDaoTest {
         sqlSession.commit();
         sqlSession.close(); 
     }
+
+    @Test
+    public void updateUser(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
+        int updateUser = mapper.updateUser(new User(3, "lph", "890")); //更新已有用户
+        if(updateUser>0){
+            System.out.println("更新用户成功");
+        }
+
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }

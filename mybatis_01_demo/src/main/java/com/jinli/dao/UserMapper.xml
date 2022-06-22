@@ -17,4 +17,8 @@
         insert into mybatis.user(id,name,pwd) values (#{id},#{name},#{pwd});
     </insert>
 
+    <update id="updateUser" parameterType="com.jinli.pojo.User">
+        update mybatis.user set name=#{name},pwd=#{pwd} where id =#{id};
+    </update>
+
 </mapper>
