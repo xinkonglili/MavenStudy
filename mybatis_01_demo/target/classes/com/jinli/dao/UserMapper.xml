@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace：绑定一个对应的dao/mapper层接口-->
+
+<mapper namespace="com.jinli.dao.UserDao">
+    <select id="getUserList" resultType="com.jinli.pojo.User">
+        select * from mybatis.user
+    </select>
+
+    <select id="getUserId" parameterType="int" resultType="com.jinli.pojo.User">
+        select * from mybatis.user where id = #{id}  <!--这里与变量id无关-->
+    </select>
+
+    <insert id="insertUser" parameterType="com.jinli.pojo.User">
+        insert into mybatis.user(id,name,pwd) values (#{id},#{name},#{pwd});
+    </insert>
+
+    <insert id="insertUser01" parameterType="map">
+        insert into mybatis.user(id,pwd) values (#{Userid},#{Userpwd});
+    </insert>
+
+    <update id="updateUser" parameterType="com.jinli.pojo.User">
+        update mybatis.user set name=#{name},pwd=#{pwd} where id =#{id};
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from mybatis.user where id =#{id};
+    </delete>
+
+</mapper>
